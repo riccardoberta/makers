@@ -1,0 +1,66 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type="text/javascript"
+  src="https://www.google.com/jsapi"></script>
+</head>
+
+<body>
+  <div id="chart" style="width: 900px; height: 500px"></div>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var maxDataPoints = 10;
+    // We initialize the Google chart
+    var chart = new google.visualization.LineChart($('#chart')[0]);
+
+    // Create an array that will contain the data points
+    var data = google.visualization.arrayToDataTable([ ['Time', 'Temperature'],[getTime(), 0] ]);
+
+    // We configure the parameters of the chart
+    var options = {
+      title: 'Temperature',
+      curveType: 'function',
+      animation: {
+        duration: 1000,
+        easing: 'in'
+      },
+      legend: {position: 'bottom'}
+    };
+
+    // Adds a datapoint to the chart data and removes the oldest one if needed
+    // (if there are already 10 points available)
+    function addDataPoint(dataPoint) {
+      if (data.getNumberOfRows() > maxDataPoints) {
+        data.removeRow(0);
+      }
+      data.addRow([getTime(), dataPoint.value]);
+      // Redraw the chart with the new data
+      chart.draw(data, options);
+    }
+
+    function getTime() {
+      var d = new Date();
+      return d.toLocaleTimeString();
+    }
+
+    // Polls the temperature sensor just like we did before
+    function doPoll() {
+      $.getJSON('http://devices.webofthings.io/pi/sensors/temperature',
+        function (result) {
+          // When the new readings is returned we use them
+          // to call the addDataPoint() function
+          addDataPoint(result);
+          setTimeout(doPoll, 2000);
+        });
+      }
+
+    doPoll();
+  };
+
+</script>
+
+</body>
+</html>

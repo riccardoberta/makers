@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ex 2.1 - Polling Temperature</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <h1>Current temperature</h1>
+    <h2 id='temp'></h2>
+    <script>
+
+    // Wait until the page is loaded and then call doPoll()
+    $(document).ready(
+      function doPoll() {
+        // Use the AJAX helper to get the JSON payload from the temperature sensor
+        $.getJSON('http://devices.webofthings.io/pi/sensors/temperature',
+          // When the response arrives, this function is called
+          function (data) {
+            console.log(data);
+            // Select the "temp" HTML element and update its content using the data.value
+            // (the value) and data.unit (the unit) returned in the JSON payload
+            $('#temp').html(data.value + ' ' + data.unit);
+            // The doPoll() function sets a timer to call itself again in 1 secods (1000 milliseconds)
+            setTimeout(doPoll, 1000);
+        });
+    });
+
+    </script>
+  </body>
+</html>

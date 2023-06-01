@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise 3.2 - POST Command to Actuator</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <h1>Send Message to WoT Pi (AJAX+JSON)</h1>
+
+  <div id="response">
+    <pre></pre>
+  </div>
+
+  <form id="message-form">
+    <input type="text" id="value" name="value" placeholder="Your message..." />
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+
+    (function($){ function processForm(e){
+      $.ajax({
+        // The URL the request will be sent to
+        url: 'http://devices.webofthings.io/pi/actuators/display/content/',
+        // The format of the data you expect to get
+        dataType: 'json',
+        // The HTTP verb this request will send
+        method: 'POST',
+        // The encoding of the data you are sending
+        contentType: 'application/json',
+        // The actual data you are sending (the content of the form)
+        data: JSON.stringify({"value": $('#value').val()}),
+        processData: false,
+        // The callback to invoke if the request was successful
+        success: function( data, textStatus, jQxhr ){
+          $('#response pre').html( JSON.stringify( data ) );
+        },
+        // The callback to invoke if the request failed
+        error: function( jqXhr, textStatus, errorThrown ){
+          console.log( errorThrown );
+        }
+      });
+      e.preventDefault();
+    }
+    //#H We attach the processForm() function to be called when someone presses submit
+    $('#message-form').submit(processForm);
+    })(jQuery);
+
+  </script>
+
+</body>
+</html>
