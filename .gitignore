@@ -1,0 +1,6 @@
+recordings/
+video/
+node_modules/
+.vscode/
+.nyc_output/
+
