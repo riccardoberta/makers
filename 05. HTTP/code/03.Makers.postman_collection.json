@@ -1,0 +1,526 @@
+{
+	"info": {
+		"_postman_id": "71d4e458-0d21-ab60-26dc-49adb5d9ff1e",
+		"name": "Makers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FileServer",
+			"item": [
+				{
+					"name": "GET file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/file.txt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"file.txt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT file",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Hello!"
+						},
+						"url": {
+							"raw": "http://localhost:8000/file.txt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"file.txt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE file",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/file.txt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"file.txt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST file",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Hello!"
+						},
+						"url": {
+							"raw": "http://localhost:8000/pincopallo.txt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"pincopallo.txt"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gateway",
+			"item": [
+				{
+					"name": "Gateway - MessagePack",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/x-msgpack"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8484/iot/sensors/temperature",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8484",
+							"path": [
+								"iot",
+								"sensors",
+								"temperature"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gateway - PUT Led",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"value\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8484/iot/actuators/leds/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8484",
+							"path": [
+								"iot",
+								"actuators",
+								"leds",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HTTPS",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/html"
+							},
+							{
+								"key": "authorization",
+								"value": "cKXRTaRylYWQiF3MICaKndG4WJMcVLFz"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:8484/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8484",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Root",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/html"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8484/iot/sensors/temperature",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8484",
+							"path": [
+								"iot",
+								"sensors",
+								"temperature"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Introduction",
+			"item": [
+				{
+					"name": "List of devices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "devices.webofthings.io/",
+							"host": [
+								"devices",
+								"webofthings",
+								"io"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A single device",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://devices.webofthings.io/pi/sensors/temperature",
+							"protocol": "http",
+							"host": [
+								"devices",
+								"webofthings",
+								"io"
+							],
+							"path": [
+								"pi",
+								"sensors",
+								"temperature"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Act on the real world",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"value\":\"ciao pippo!\"\n}"
+						},
+						"url": {
+							"raw": "http://devices.webofthings.io/pi/actuators/display/content/",
+							"protocol": "http",
+							"host": [
+								"devices",
+								"webofthings",
+								"io"
+							],
+							"path": [
+								"pi",
+								"actuators",
+								"display",
+								"content",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Twitter",
+			"item": [
+				{
+					"name": "Twitter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post tweet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b2608b49-3b96-487f-be32-9c3b3eeb8dd9",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"tweet\" : \"bla bla bla\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/send",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tweets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/tweets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"administrator\", jsonData.globalAdministrators[0].id);",
+							"postman.setEnvironmentVariable(\"username_administrator\", jsonData.globalAdministrators[0].user.username);",
+							"postman.setEnvironmentVariable(\"password_administrator\", jsonData.globalAdministrators[0].user.password);",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "authorization",
+						"value": "Feh81I99qFpSePPIbjk4nwDnaNLGWWkC"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:8484/properties/temperature",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8484",
+					"path": [
+						"properties",
+						"temperature"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Complete Example",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f024d3cd-ef79-4010-8929-980520dc7617",
+						"exec": [
+							"tests['Status code is 200'] = pm.response.to.have.status(200);",
+							"let jsonData = JSON.parse(responseBody);",
+							"tests['User with id1 is Leanne Graham'] = pm.expect(jsonData[0].name).to.eql(pm.globals.get('username'));",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a3975046-ffa0-499a-a9ce-c96d72c2842c",
+						"exec": [
+							"postman.setGlobalVariable('username', 'Leanne Graham');"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
