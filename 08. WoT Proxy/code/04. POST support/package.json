@@ -1,0 +1,25 @@
+{
+  "name": "post-support",
+  "version": "0.0.1",
+  "description": "A Proxy server for web of things",
+  "main": "wot-server.js",
+  "host": "localhost",
+  "scripts": {
+    "prod": "node ./wot-server.js -prod"
+  },
+  "keywords": [
+    "API",
+    "WOT",
+    "IoT"
+  ],
+  "author": "Riccardo Berta",
+  "license": "ISC",
+  "homepage": "https://2018.aulaweb.unige.it/course/view.php?id=780",
+  "dependencies": {
+    "express": "^4.17.1",
+    "msgpack5": "^4.2.1",
+    "node-json2html": "^1.2.0",
+    "node-observer": "^0.4.4",
+    "serialport": "^9.0.0"
+  }
+}
