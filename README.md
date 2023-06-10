@@ -23,7 +23,7 @@ To effectively engage with the contents of the course, the following basic knowl
 
 ## Syllabus
 
-The following list outlines the topics covered in the course. Some of the materials used during the lectures, including slides and source code for exercises, can be downloaded from the following link: https://github.com/riccardoberta/makers
+The following list outlines the topics covered in the course:
 
 1. Introduction to IoT, WoT, and Physical Computing
 2. Edge Devices
@@ -37,6 +37,8 @@ The following list outlines the topics covered in the course. Some of the materi
 10. Securing
 11. Interoperability and Semantics
 12. GUI (Graphical User Interface)
+
+By accessing the GitHub repository, you will have access to the lecture materials, including slides and source codes, to further explore and study the course topics.
 
 ## Recommended reading
 
