@@ -19,8 +19,8 @@ app.post('/send', bodyParser.json(), function(req, res) {
     // express.bodyParser() adds a property to req called body, it
     // contains an object representing the post data
     if (req.body && req.body.tweet) { 
-		tweets.push(req.body.tweet);
-      	res.send( { status:"ok", message:"Tweet received" } );
+		  tweets.push(req.body.tweet);
+      res.send( { status:"ok", message:"Tweet received" } );
     }
     else { res.send( {status:"nok", message:"No tweet received" } ); }
 })

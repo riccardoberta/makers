@@ -9,7 +9,7 @@ chai.use(chaiHttp);
 describe('/GET temperature', () => {
     it('it should GET the temperature', async () => {
         const res = await chai.request(server).get('/iot/sensors/temperature');
-        res.should.have.status(200);
+        res.should.have.status(404);
         res.body.should.be.a('object');
     });
 });

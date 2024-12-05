@@ -6,7 +6,7 @@ describe('Object Test', function(){
     car.should.have.property('name');
   });
 
-  it('should have property name with value Figo', function(){
+  it('should have property name with value Compass', function(){
     const car = { name:'Compass', Maker:'Jeep' }
     car.should.have.property('name').equal('Compass');
   });

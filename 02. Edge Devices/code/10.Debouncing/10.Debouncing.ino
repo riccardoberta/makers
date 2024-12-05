@@ -35,19 +35,15 @@ boolean bPressAccepted = false;
 // Represents a (reference) point in time
 unsigned long timeRef = 0;
 
-void setup()
-{
+void setup() {
     pinMode(PB_PIN, INPUT_PULLUP);
     pinMode(LED_PIN, OUTPUT);
 }
 
-void loop()
-{
-  if (digitalRead(PB_PIN) == LOW)
-  {
+void loop() {
+  if (digitalRead(PB_PIN) == LOW) {
     // If transient response has just started
-    if (!transientPeriodStarted)
-    {
+    if (!transientPeriodStarted) {
       // Sets the flag for the start of the transient period
       transientPeriodStarted = true;
       
@@ -56,8 +52,7 @@ void loop()
     }
     // If the transient period has passed 
     // and we haven't already accepted the button press 
-    else if (!bPressAccepted && (unsigned long)(millis() - timeRef) > TRANSIENT_PERIOD)
-    {
+    else if (!bPressAccepted && (unsigned long)(millis() - timeRef) > TRANSIENT_PERIOD) {
       // Toggles the state of the LED
       ledOn = !ledOn;
       digitalWrite(LED_PIN, ledOn); 
@@ -67,8 +62,7 @@ void loop()
     }
   }
   // The button has been released
-  else
-  {
+  else {
     // Resets the flags
     transientPeriodStarted = false;
     bPressAccepted = false;

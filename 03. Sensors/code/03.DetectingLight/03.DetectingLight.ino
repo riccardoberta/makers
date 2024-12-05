@@ -19,7 +19,7 @@ void setup() {
   // Initialize the SFE_TSL2561 library
 
   // You can pass nothing to light.begin() for the default I2C address (0x39),
-  // or use one of the following presets if you have changed the ADDR jumper on the board:
+  // or use one of the presets if you have changed the ADDR jumper on the board:
   light.begin();
 
   // Get factory ID from sensor:

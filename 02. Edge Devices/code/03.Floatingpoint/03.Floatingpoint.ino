@@ -19,7 +19,7 @@ void setup()
 // Use two-parameter form of Serial.print.  
 // The second parameter specifies
 // the number of digits in value sent to the Serial Monitor
-  Serial.println(w,8);  
+  Serial.println(w,16);  
   Serial.println(x,8);  
   Serial.println(y,8);  
   Serial.println(z,8);  

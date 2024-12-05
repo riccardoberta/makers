@@ -19,5 +19,5 @@ const req = http.request(opts, function(res){
 })
 
 // write some data to the server
-req.write('{"tweet":"test"}');
+req.write('{"tweeft":"test"}');
 req.end();

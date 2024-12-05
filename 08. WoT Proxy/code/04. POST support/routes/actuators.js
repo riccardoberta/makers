@@ -14,7 +14,7 @@ router.route('/leds').get(function (req, res, next) {
   next();
 });
 
-router.route('/leds/:id').get(function (req, res, next) {
+router.route('/leds/:pippo').get(function (req, res, next) {
   req.result = resources.iot.actuators.leds[req.params.id];
   next();
 });

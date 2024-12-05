@@ -2,15 +2,13 @@ const int RED_PIN = 10;
 const int YELLOW_PIN = 9;
 const int GREEN_PIN = 8;
 
-void setup()
-{
+void setup() {
     pinMode(RED_PIN, OUTPUT);
     pinMode(YELLOW_PIN, OUTPUT);
     pinMode(GREEN_PIN, OUTPUT);
 }
 
-void loop()
-{
+void loop() {
   digitalWrite(RED_PIN, false);
   digitalWrite(YELLOW_PIN, false);
   digitalWrite(GREEN_PIN, true);

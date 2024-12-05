@@ -12,19 +12,15 @@ boolean buttonAlreadyPressed = false;
 // Flag to indicate the state of the LED
 boolean ledOn = false;
 
-void setup()
-{
+void setup() {
     pinMode(PB_PIN, INPUT_PULLUP);
     pinMode(LED_PIN, OUTPUT);
 }
 
-void loop()
-{
-  if (digitalRead(PB_PIN) == LOW)
-  {
+void loop() {
+  if (digitalRead(PB_PIN) == LOW) {
     // If the button was just been pressed
-    if (!buttonAlreadyPressed)
-    {
+    if (!buttonAlreadyPressed) {
       // Sets the button's flag
       buttonAlreadyPressed = true;
       
@@ -33,8 +29,7 @@ void loop()
       digitalWrite(LED_PIN, ledOn);
     }
   }
-  else
-  {
+  else {
     // The button has been released
     buttonAlreadyPressed = false;
   }

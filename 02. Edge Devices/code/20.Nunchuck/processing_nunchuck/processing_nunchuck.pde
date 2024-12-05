@@ -2,7 +2,7 @@
 import processing.serial.*;
 
 Serial myPort;
-public static final short portIndex = 2;
+public static final short portIndex = 1;
 
 void setup()
 {

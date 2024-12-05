@@ -3,4 +3,9 @@ video/
 node_modules/
 .vscode/
 .nyc_output/
+__MACOSX/
+Icon?
+![iI]con[_a-zA-Z0-9]
+
+
 

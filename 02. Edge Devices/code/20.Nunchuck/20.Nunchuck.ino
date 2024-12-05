@@ -20,18 +20,18 @@ void loop()
   // To get the value of acceleration in the x-axis from the nunchuck and store it
   accx  = nunchuck_accelx();
 
-  Serial.print(nunchuck_buf[0]);
-  Serial.print(" ");
-  Serial.print(nunchuck_buf[1]);
-  Serial.print(" ");
-  Serial.print(nunchuck_buf[2]);
-  Serial.print(" ");
-  Serial.print(nunchuck_buf[3]);
-  Serial.print(" ");
-  Serial.print(nunchuck_buf[4]);
-  Serial.print(" ");
-  Serial.print(nunchuck_buf[5]);
-  Serial.println(" ");
+  //Serial.print(nunchuck_buf[0]);
+  //Serial.print(" ");
+  //Serial.print(nunchuck_buf[1]);
+  //Serial.print(" ");
+  //Serial.print(nunchuck_buf[2]);
+  //Serial.print(" ");
+  //Serial.print(nunchuck_buf[3]);
+  //Serial.print(" ");
+  //Serial.print(nunchuck_buf[4]);
+  //Serial.print(" ");
+  //Serial.print(nunchuck_buf[5]);
+  //Serial.println(" ");
 
 
   if( accx >= 75 && accx <= 185) {

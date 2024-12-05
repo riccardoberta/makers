@@ -33,4 +33,4 @@ function broadcast(message, client) {
 }
 
 // The port on which Node is listen to
-chatServer.listen(9000)
+chatServer.listen(80)

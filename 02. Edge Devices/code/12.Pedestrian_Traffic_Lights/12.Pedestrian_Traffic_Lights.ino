@@ -33,14 +33,14 @@ void setup() {
 void loop() 
 {
 
-    digitalWrite(L2_RED_PIN, HIGH);
+  digitalWrite(L2_RED_PIN, HIGH);
   digitalWrite(L1_RED_PIN, LOW);
   digitalWrite(L1_YELLOW_PIN, LOW);
   digitalWrite(L1_GREEN_PIN, HIGH);
   delay(1000);  
 
 
-    digitalWrite(L2_RED_PIN, HIGH);
+  digitalWrite(L2_RED_PIN, HIGH);
   digitalWrite(L1_RED_PIN, LOW);
   digitalWrite(L1_YELLOW_PIN, HIGH);
   digitalWrite(L1_GREEN_PIN, LOW);
@@ -64,8 +64,7 @@ void loop()
   }
 }
 
-void changeLight()
-{
+void changeLight() {
   request = true;
 }
 

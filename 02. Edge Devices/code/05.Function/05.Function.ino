@@ -7,8 +7,7 @@ float average_reading(int sensor_pin, int size)
   float sum;
 
   sum = 0.0;    // initial value of sum
-  for ( i=1; i<=size; i++ ) 
-  {
+  for (i=1; i<=size; i++) {
     sum = sum + analogRead(sensor_pin);
   }
   average = sum/size;
@@ -16,13 +15,11 @@ float average_reading(int sensor_pin, int size)
   return(average);
 }
 
-void setup() 
-{
+void setup() {
   Serial.begin(9600);
 }
 
-void loop() 
-{
+void loop() {
   int n=15;
   int pot_pin=1;
   float reading;
