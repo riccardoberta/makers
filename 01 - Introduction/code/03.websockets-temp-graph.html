@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+  <body>
+    <div id="chart" style="width: 900px; height: 500px"></div>
+    <script>
+      google.charts.load('current', { packages: ['corechart'] });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        const maxDataPoints = 10;
+        const chart = new google.visualization.LineChart(document.getElementById('chart'));
+        const data = google.visualization.arrayToDataTable([
+          ['Time', 'Temperature'],
+          [new Date().toLocaleTimeString(), 0]
+        ]);
+
+        const options = {
+          title: 'Temperature',
+          curveType: 'function',
+          animation: { duration: 1000, easing: 'in' },
+          legend: { position: 'bottom' }
+        };
+
+        function addDataPoint(value) {
+          if (data.getNumberOfRows() > maxDataPoints) data.removeRow(0);
+          data.addRow([new Date().toLocaleTimeString(), value]);
+          chart.draw(data, options);
+        }
+
+        const socket = new WebSocket('wss://makers.diten.unige.it/iot/sensors/temperature');
+
+        socket.onmessage = (event) => {
+          const cleanedData = event.data.replace(/"/g, '').trim();
+          const result = parseFloat(cleanedData);
+          addDataPoint(result);
+        };
+
+        socket.onerror = (error) => {
+          console.error('WebSocket error:', error);
+        };
+      }
+    </script>
+  </body>
+</html>

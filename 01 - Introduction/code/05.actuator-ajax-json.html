@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Send Message to Actuator</title>
+</head>
+<body>
+  <h1>Send Message to Actuator</h1>
+
+  <form id="message-form">
+    <label for="message">Enter a message for the Led 1:</label>
+    <input type="text" id="message" name="value" placeholder="true" required>
+    <button type="submit">Send to Led</button>
+  </form>
+
+  <script>
+    document.getElementById('message-form').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent form submission and page reload
+
+      const message = document.getElementById('message').value;
+
+      console.log(message);
+
+      fetch('https://makers.diten.unige.it/iot/actuators/leds/1', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ value: message }),
+      })
+      .then(response => {
+          console.log(response);
+        })
+        .then(data => {
+          console.log('Message sent successfully:', data);
+        })
+        .catch(error => {
+          console.error('Error sending message:', error);
+        });
+    });
+  </script>
+</body>
+</html>

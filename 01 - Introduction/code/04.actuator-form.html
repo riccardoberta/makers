@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Send Message to Actuator</title>
+</head>
+<body>
+  <h1>Send Message to Actuator</h1>
+
+  <!-- The form uses the PUT method to send data directly to the device -->
+  <form action="https://makers.diten.unige.it/iot/actuators/leds/1" method="post">
+    <label for="message">Enter a message for the Led 1</label>
+    <input type="text" id="message" name="value" placeholder="{ 'value': false }" required>
+    <button type="submit">Send to Pi</button>
+  </form>
+</body>
+</html>

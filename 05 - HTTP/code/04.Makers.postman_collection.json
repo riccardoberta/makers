@@ -9,29 +9,6 @@
 			"name": "FileServer",
 			"item": [
 				{
-					"name": "POST file",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "Hello!"
-						},
-						"url": {
-							"raw": "http://localhost:8000/pincopallo.txt",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"pincopallo.txt"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "GET file",
 					"request": {
 						"method": "GET",
@@ -99,6 +76,29 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "POST file",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Hello!"
+						},
+						"url": {
+							"raw": "http://localhost:8000/pincopallo.txt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"pincopallo.txt"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -154,7 +154,7 @@
 							"raw": "{\n    \"value\": true\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8484/iot/actuators/leds/1",
+							"raw": "http://localhost:8484/iot/actuators/leds/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -164,7 +164,7 @@
 								"iot",
 								"actuators",
 								"leds",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -203,13 +203,13 @@
 					"response": []
 				},
 				{
-					"name": "GET Temperature",
+					"name": "GET Root",
 					"request": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "text/html"
 							}
 						],
 						"body": {
@@ -227,109 +227,6 @@
 								"iot",
 								"sensors",
 								"temperature"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET Led",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:8484/iot/actuators/leds/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8484",
-							"path": [
-								"iot",
-								"actuators",
-								"leds",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Measurements",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:8484/iot/measurements",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8484",
-							"path": [
-								"iot",
-								"measurements"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Meaturement filtered and paginated",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:8484/iot/measurements?filter={\"type\":\"temperature [Celsius degree]\"}&limit=2&page=6",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8484",
-							"path": [
-								"iot",
-								"measurements"
-							],
-							"query": [
-								{
-									"key": "filter",
-									"value": "{\"type\":\"temperature [Celsius degree]\"}"
-								},
-								{
-									"key": "limit",
-									"value": "2"
-								},
-								{
-									"key": "page",
-									"value": "6"
-								}
 							]
 						}
 					},
@@ -621,21 +518,6 @@
 					"path": [
 						"users"
 					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "pippo",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": ""
 				}
 			},
 			"response": []
