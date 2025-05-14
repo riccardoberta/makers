@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Polling Temperature</title>
+  </head>
+  <body>
+    <h1>Current Temperature</h1>
+    <h2 id="temp"></h2>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        function fetchTemperature() {
+          fetch('https://makers.diten.unige.it/iot/sensors/temperature', 
+                {headers: {'Accept': 'application/json'}})
+            .then(response => response.json())
+            .then(data => {
+              document.getElementById('temp').textContent = `${data.value} ${data.unit}`;
+              setTimeout(fetchTemperature, 1000);
+            })
+            .catch(error => console.error('Error:', error));
+        }
+        fetchTemperature();
+      });
+    </script>
+  </body>
+</html>

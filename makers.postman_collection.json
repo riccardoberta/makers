@@ -1,0 +1,575 @@
+{
+	"info": {
+		"_postman_id": "71d4e458-0d21-ab60-26dc-49adb5d9ff1e",
+		"name": "Makers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "56096"
+	},
+	"item": [
+		{
+			"name": "FileServer",
+			"item": [
+				{
+					"name": "POST file",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Hello!"
+						},
+						"url": "http://localhost:8000/pincopallo.txt"
+					},
+					"response": []
+				},
+				{
+					"name": "GET file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "http://localhost:8000/file.txt"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT file",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Hello!"
+						},
+						"url": "http://localhost:8000/file.txt"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE file",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:8000/file.txt"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gateway",
+			"item": [
+				{
+					"name": "Gateway - MessagePack",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/x-msgpack"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "tweet",
+									"value": "Ciao come stai?",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8484/iot/sensors/temperature"
+					},
+					"response": []
+				},
+				{
+					"name": "Gateway - PUT Led",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"value\": true\n}"
+						},
+						"url": "http://localhost:8484/iot/actuators/leds/1"
+					},
+					"response": []
+				},
+				{
+					"name": "GET temperature in HTTPS",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/html"
+							},
+							{
+								"key": "authorization",
+								"value": "Feh81I99qFpSePPIbjk4nwDnaNLGWWkC"
+							}
+						],
+						"url": "https://localhost/iot/sensors/temperature"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Temperature",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "http://localhost:8484/iot/sensors/temperature"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Led",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "http://localhost:8484/iot/actuators/leds/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Measurements",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "http://localhost:8484/iot/measurements"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Meaturement filtered and paginated",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8484/iot/measurements?filter={\"type\":\"temperature [Celsius degree]\"}&limit=2&page=6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8484",
+							"path": [
+								"iot",
+								"measurements"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "{\"type\":\"temperature [Celsius degree]\"}"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "page",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Introduction",
+			"item": [
+				{
+					"name": "List of devices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "devices.webofthings.io/pi"
+					},
+					"response": []
+				},
+				{
+					"name": "A single device",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "http://devices.webofthings.io/pi/sensors/temperature"
+					},
+					"response": []
+				},
+				{
+					"name": "Act on the real world",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"value\":\"ciao pippo!\"\n}"
+						},
+						"url": "http://devices.webofthings.io/pi/actuators/display/content/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Twitter",
+			"item": [
+				{
+					"name": "Twitter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "tweet",
+									"value": "Ciao come stai?",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8000"
+					},
+					"response": []
+				},
+				{
+					"name": "Post tweet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"tweet\" : \"bla bla bla\"\n}"
+						},
+						"url": "http://localhost:8000/send"
+					},
+					"response": []
+				},
+				{
+					"name": "Get tweets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "tweet",
+									"value": "Ciao come stai?",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8000/tweets"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Richardson Maturity Model",
+			"item": [
+				{
+					"name": "level0-openSlotRequest",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"method\": \"openSlotRequest\",\n  \"payload\": {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/appointmentService"
+					},
+					"response": []
+				},
+				{
+					"name": "level0-appointmentRequest",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"method\": \"appointmentRequest\",\n  \"payload\": {\n    \"slotId\": 1,\n    \"user\": \"Alice\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/appointmentService"
+					},
+					"response": []
+				},
+				{
+					"name": "level1-doctors",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/doctors/1"
+					},
+					"response": []
+				},
+				{
+					"name": "level1-slots",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": \"Alice\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/slots/2"
+					},
+					"response": []
+				},
+				{
+					"name": "level2-slots",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": \"Alice\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/slots/1"
+					},
+					"response": []
+				},
+				{
+					"name": "level3-slots",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": \"Alice\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/slots/1"
+					},
+					"response": []
+				},
+				{
+					"name": "level2-doctors-slots",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/doctors/1/slots"
+					},
+					"response": []
+				},
+				{
+					"name": "level3-doctors-slots",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/doctors/1/slots"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

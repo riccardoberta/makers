@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+  <body>
+    <div id="chart" style="width: 900px; height: 500px"></div>
+    <script>
+      // Load the Google Charts library
+      google.charts.load('current', { packages: ['corechart'] });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        const maxDataPoints = 10;
+        const chart = new google.visualization.LineChart(document.getElementById('chart'));
+        const data = google.visualization.arrayToDataTable([
+          ['Time', 'Temperature'],
+          [new Date().toLocaleTimeString(), 0.5]
+        ]);
+
+        const options = {
+          title: 'Temperature',
+          curveType: 'function',
+          animation: { duration: 1000, easing: 'in' },
+          legend: { position: 'bottom' }
+        };
+
+        function addDataPoint(value) {
+          console.log(value)
+          const numericValue = Number(value);
+          if (data.getNumberOfRows() > maxDataPoints) data.removeRow(0);
+          data.addRow([new Date().toLocaleTimeString(), numericValue]);
+          chart.draw(data, options);
+        }
+
+        function fetchTemperature() {
+          fetch('https://makers.diten.unige.it/iot/sensors/temperature', 
+          {headers: {'Accept': 'application/json'}})
+            .then(response => response.json())
+            .then(result => {
+              addDataPoint(result.value);
+              setTimeout(fetchTemperature, 2000);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        }
+
+        fetchTemperature();
+      }
+    </script>
+  </body>
+</html>

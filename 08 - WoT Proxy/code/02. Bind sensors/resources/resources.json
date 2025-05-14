@@ -1,0 +1,38 @@
+{
+  "iot": {
+    "name": "MyWoT",
+    "description": "A simple WoT API",
+    "port": 8484,
+    "sensors": {
+      "temperature": {
+        "name": "Temperature Sensor",
+        "description": "An ambient temperature sensor.",
+        "unit": "celsius",
+        "value": 0
+      },
+      "light": {
+        "name": "Light Sensor",
+        "description": "An ambient light sensor.",
+        "unit": "%",
+        "value": 0
+      },
+      "pir": {
+        "name": "Passive Infrared",
+        "description": "A passive infrared sensor. When 'true' someone is present.",
+        "value": true
+      }
+    },
+    "actuators": {
+      "leds": {
+        "1": {
+          "name": "LED 1",
+          "value": false
+        },
+        "2": {
+          "name": "LED 2",
+          "value": false
+        }
+      }
+    }
+  }
+}
