@@ -6,6 +6,8 @@ node_modules/
 __MACOSX/
 Icon?
 ![iI]con[_a-zA-Z0-9]
+.gitignore
+
 
 
 

@@ -7,7 +7,8 @@ chatServer.on('connection', function(client) {
     client.write('Hi ' + client.name + '!\n');
     console.log(client.name + ' joined');
     clientList.push(client);
-    client.on('data', function(data) { broadcast(data, client) });
+    
+	client.on('data', function(data) { broadcast(data, client) });
 
     // Add a new callback for the "end" event: it is fired
     // when a client disconnect. Now when the next client uses the
