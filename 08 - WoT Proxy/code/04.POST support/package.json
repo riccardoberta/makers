@@ -20,6 +20,6 @@
     "msgpack5": "^4.2.1",
     "node-json2html": "^1.2.0",
     "node-observer": "^0.4.4",
-    "serialport": "^9.0.0"
+    "serialport": "^13.0.0"
   }
 }

@@ -7,9 +7,8 @@
     "express": "^4.17.1",
     "msgpack5": "^4.2.1",
     "node-json2html": "^1.4.0",
-    "serialport": "^9.0.0"
+    "serialport": "^13.0.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

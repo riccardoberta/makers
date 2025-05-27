@@ -1,4 +1,5 @@
 const resources = require('./../resources/model');
+const observer = require("node-observer");
 
 let interval;
 const model = resources.iot.sensors.pir;
